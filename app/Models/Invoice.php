@@ -109,7 +109,7 @@ class Invoice extends Model
 
     public function isOverdue(): bool
     {
-        return $this->due_date < now() && !in_array($this->status, ['paid', 'cancelled']);
+        return $this->due_date < now() && ! in_array($this->status, ['paid', 'cancelled']);
     }
 
     public function isPaid(): bool

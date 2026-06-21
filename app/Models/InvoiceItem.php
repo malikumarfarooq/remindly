@@ -9,27 +9,24 @@ class InvoiceItem extends Model
     protected $fillable = [
         'invoice_id',
         'description',
+        'details',
+        'unit',
         'quantity',
         'unit_price',
         'tax_rate',
-        'tax_amount',
-        'discount_type',
-        'discount_value',
-        'discount_amount',
-        'line_total',
+        'discount_percent',
+        'total',
         'sort_order',
     ];
 
     protected function casts(): array
     {
         return [
-            'quantity'       => 'decimal:2',
-            'unit_price'     => 'decimal:2',
-            'tax_rate'       => 'decimal:2',
-            'tax_amount'     => 'decimal:2',
-            'discount_value' => 'decimal:2',
-            'discount_amount' => 'decimal:2',
-            'line_total'     => 'decimal:2',
+            'quantity'         => 'decimal:2',
+            'unit_price'       => 'decimal:2',
+            'tax_rate'         => 'decimal:2',
+            'discount_percent' => 'decimal:2',
+            'total'            => 'decimal:2',
         ];
     }
 

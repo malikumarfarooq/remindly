@@ -8,6 +8,8 @@ class ActivityLog extends Model
 {
     protected $fillable = [
         'user_id',
+        'loggable_id',
+        'loggable_type',
         'action',
         'description',
         'changes',
@@ -44,14 +46,14 @@ class ActivityLog extends Model
         array $changes = []
     ): self {
         return self::create([
-            'user_id'     => $userId,
-            'action'      => $action,
-            'description' => $description,
+            'user_id'       => $userId,
+            'action'        => $action,
+            'description'   => $description,
             'loggable_id'   => $model?->id,
             'loggable_type' => $model ? get_class($model) : null,
-            'changes'     => $changes,
-            'ip_address'  => request()->ip(),
-            'user_agent'  => request()->userAgent(),
+            'changes'       => $changes,
+            'ip_address'    => request()->ip(),
+            'user_agent'    => request()->userAgent(),
         ]);
     }
 }
