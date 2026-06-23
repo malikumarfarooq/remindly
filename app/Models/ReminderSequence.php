@@ -34,7 +34,12 @@ class ReminderSequence extends Model
 
     public function steps()
     {
-        return $this->hasMany(ReminderStep::class)->orderBy('offset_days');
+        return $this->hasMany(ReminderStep::class);
+    }
+
+    public function stepsOrdered()
+    {
+        return $this->hasMany(ReminderStep::class)->orderBy('days_offset');
     }
 
     public function notificationSettings()

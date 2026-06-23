@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Policies\InvoicePolicy;
 use App\Models\Invoice;
+
+use App\Models\Client;
+use App\Policies\ClientPolicy;
 use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::policy(Invoice::class, InvoicePolicy::class);
+        Gate::policy(Client::class, ClientPolicy::class);
     }
 }

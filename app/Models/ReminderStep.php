@@ -11,7 +11,8 @@ class ReminderStep extends Model
 
     protected $fillable = [
         'reminder_sequence_id',
-        'offset_days',
+        'step_number',
+        'days_offset',
         'offset_from',
         'label',
         'tone',
